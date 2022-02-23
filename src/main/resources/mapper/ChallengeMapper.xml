@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.earl.chaos.chaos_admin.mapper.ChallengeMapper">
+
+    <resultMap id="BaseResultMap" type="com.earl.chaos.chaos_admin.domain.Challenge">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="price" column="price" jdbcType="INTEGER"/>
+            <result property="isDone" column="is_done" jdbcType="BIT"/>
+            <result property="outCreateId" column="out_create_id" jdbcType="INTEGER"/>
+            <result property="isOutDone" column="is_out_done" jdbcType="INTEGER"/>
+            <result property="prizeId" column="prize_id" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="doneTime" column="done_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,description,
+        user_id,price,is_done,
+        out_create_id,is_out_done,prize_id,
+        create_time,done_time
+    </sql>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.earl.chaos.chaos_admin.mapper.PrizeMapper">
+
+    <resultMap id="BaseResultMap" type="com.earl.chaos.chaos_admin.domain.Prize">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="outUserId" column="out_user_id" jdbcType="INTEGER"/>
+            <result property="isExchange" column="is_exchange" jdbcType="BIT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,price,
+        user_id,out_user_id,is_exchange
+    </sql>
+</mapper>
