@@ -2,6 +2,7 @@ package com.earl.chaos.chaos_admin.service;
 
 import com.earl.chaos.chaos_admin.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.earl.chaos.chaos_admin.dto.UserDto;
 
 /**
 * @author earl
@@ -10,4 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface UserService extends IService<User> {
 
+    void register(UserDto user);
+
+    boolean login(UserDto user);
 }

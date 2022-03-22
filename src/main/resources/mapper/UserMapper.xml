@@ -11,10 +11,12 @@
             <result property="weixinId" column="weixin_id" jdbcType="VARCHAR"/>
             <result property="groupId" column="group_id" jdbcType="INTEGER"/>
             <result property="priceUnitName" column="price_unit_name" jdbcType="VARCHAR"/>
+            <result property="totalPrice" column="total_price" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,name,sex,
-        weixin_id,group_id,price_unit_name
+        weixin_id,group_id,price_unit_name,
+        total_price
     </sql>
 </mapper>

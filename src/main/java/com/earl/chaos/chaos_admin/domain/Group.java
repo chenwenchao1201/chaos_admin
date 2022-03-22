@@ -11,7 +11,7 @@ import lombok.Data;
  * 
  * @TableName group
  */
-@TableName(value ="group")
+@TableName(value ="nest")
 @Data
 public class Group implements Serializable {
     /**

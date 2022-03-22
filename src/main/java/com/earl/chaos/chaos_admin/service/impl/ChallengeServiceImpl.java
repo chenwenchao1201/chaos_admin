@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author earl
 * @description 针对表【challenge】的数据库操作Service实现
-* @createDate 2022-02-23 22:02:01
+* @createDate 2022-03-22 16:41:24
 */
 @Service
 public class ChallengeServiceImpl extends ServiceImpl<ChallengeMapper, Challenge>

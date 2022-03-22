@@ -16,12 +16,13 @@
             <result property="prizeId" column="prize_id" jdbcType="INTEGER"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
             <result property="doneTime" column="done_time" jdbcType="TIMESTAMP"/>
+            <result property="isLoop" column="is_loop" jdbcType="BIT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,name,description,
         user_id,price,is_done,
         out_create_id,is_out_done,prize_id,
-        create_time,done_time
+        create_time,done_time,is_loop
     </sql>
 </mapper>

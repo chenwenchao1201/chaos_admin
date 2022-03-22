@@ -45,6 +45,11 @@ public class User implements Serializable {
      */
     private String priceUnitName;
 
+    /**
+     *  当前总积分
+     */
+    private Integer totalPrice;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -65,7 +70,8 @@ public class User implements Serializable {
             && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
             && (this.getWeixinId() == null ? other.getWeixinId() == null : this.getWeixinId().equals(other.getWeixinId()))
             && (this.getGroupId() == null ? other.getGroupId() == null : this.getGroupId().equals(other.getGroupId()))
-            && (this.getPriceUnitName() == null ? other.getPriceUnitName() == null : this.getPriceUnitName().equals(other.getPriceUnitName()));
+            && (this.getPriceUnitName() == null ? other.getPriceUnitName() == null : this.getPriceUnitName().equals(other.getPriceUnitName()))
+            && (this.getTotalPrice() == null ? other.getTotalPrice() == null : this.getTotalPrice().equals(other.getTotalPrice()));
     }
 
     @Override
@@ -78,6 +84,7 @@ public class User implements Serializable {
         result = prime * result + ((getWeixinId() == null) ? 0 : getWeixinId().hashCode());
         result = prime * result + ((getGroupId() == null) ? 0 : getGroupId().hashCode());
         result = prime * result + ((getPriceUnitName() == null) ? 0 : getPriceUnitName().hashCode());
+        result = prime * result + ((getTotalPrice() == null) ? 0 : getTotalPrice().hashCode());
         return result;
     }
 
@@ -93,6 +100,7 @@ public class User implements Serializable {
         sb.append(", weixinId=").append(weixinId);
         sb.append(", groupId=").append(groupId);
         sb.append(", priceUnitName=").append(priceUnitName);
+        sb.append(", totalPrice=").append(totalPrice);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
