@@ -17,12 +17,31 @@
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
             <result property="doneTime" column="done_time" jdbcType="TIMESTAMP"/>
             <result property="isLoop" column="is_loop" jdbcType="BIT"/>
+            <result property="loopTime" column="loop_time" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,name,description,
         user_id,price,is_done,
         out_create_id,is_out_done,prize_id,
-        create_time,done_time,is_loop
+        create_time,done_time,is_loop,
+        loop_time
     </sql>
+    <select id="findByUserIdAndIsDoneOrderByCreateTime" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from challenge
+        where
+        user_id = #{userId,jdbcType=NUMERIC}
+        AND is_done = #{isDone,jdbcType=BOOLEAN}
+        order by createTime
+    </select>
+    <select id="findByIsLoopAndUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from challenge
+        where
+        is_loop = #{isLoop,jdbcType=BOOLEAN}
+        AND user_id = #{userId,jdbcType=NUMERIC}
+    </select>
 </mapper>

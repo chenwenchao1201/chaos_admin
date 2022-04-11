@@ -4,9 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 
@@ -41,6 +42,11 @@ public class Note implements Serializable {
      */
     private Integer level;
 
+    /**
+     * 
+     */
+    private Integer challengeId;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -60,7 +66,8 @@ public class Note implements Serializable {
             && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()));
+            && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()))
+            && (this.getChallengeId() == null ? other.getChallengeId() == null : this.getChallengeId().equals(other.getChallengeId()));
     }
 
     @Override
@@ -72,6 +79,7 @@ public class Note implements Serializable {
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getLevel() == null) ? 0 : getLevel().hashCode());
+        result = prime * result + ((getChallengeId() == null) ? 0 : getChallengeId().hashCode());
         return result;
     }
 
@@ -86,6 +94,7 @@ public class Note implements Serializable {
         sb.append(", userId=").append(userId);
         sb.append(", createTime=").append(createTime);
         sb.append(", level=").append(level);
+        sb.append(", challengeId=").append(challengeId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

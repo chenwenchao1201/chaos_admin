@@ -12,5 +12,5 @@ import java.io.Serializable;
 @Data
 public class GroupDto extends Group implements Serializable {
 
-
+    private Integer userId;
 }

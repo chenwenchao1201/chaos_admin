@@ -14,4 +14,8 @@ public interface UserService extends IService<User> {
     void register(UserDto user);
 
     boolean login(UserDto user);
+
+    User findByWeixinId(String weixinId);
+
+    boolean clearGroupId(Integer userId);
 }

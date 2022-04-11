@@ -10,10 +10,11 @@
             <result property="userId" column="user_id" jdbcType="INTEGER"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
             <result property="level" column="level" jdbcType="INTEGER"/>
+            <result property="challengeId" column="challenge_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,description,user_id,
-        create_time,level
+        create_time,level,challenge_id
     </sql>
 </mapper>

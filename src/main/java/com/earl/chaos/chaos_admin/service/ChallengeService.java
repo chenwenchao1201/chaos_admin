@@ -3,6 +3,8 @@ package com.earl.chaos.chaos_admin.service;
 import com.earl.chaos.chaos_admin.domain.Challenge;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
 * @author earl
 * @description 针对表【challenge】的数据库操作Service
@@ -10,4 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ChallengeService extends IService<Challenge> {
 
+    List<Challenge> getListByUserId(Integer id);
+
+    List<Challenge> getWeeklyList(Integer userId);
 }

@@ -1,4 +1,6 @@
 package com.earl.chaos.chaos_admin.mapper;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 import com.earl.chaos.chaos_admin.domain.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -11,6 +13,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface UserMapper extends BaseMapper<User> {
 
+    List<User> findByWeixinId(@Param("weixinId") String weixinId);
+
+    List<User> findByGroupId(@Param("groupId") Integer groupId);
+
+    int updateGroupIdById(@Param("id") Integer id);
 }
 
 

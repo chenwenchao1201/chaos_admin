@@ -19,4 +19,23 @@
         weixin_id,group_id,price_unit_name,
         total_price
     </sql>
+    <select id="findByWeixinId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where
+        weixin_id = #{weixinId,jdbcType=VARCHAR}
+    </select>
+    <select id="findByGroupId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where
+        group_id = #{groupId,jdbcType=NUMERIC}
+    </select>
+    <update id="updateGroupIdById">
+        update user
+        set group_id = null
+        where id = #{id,jdbcType=NUMERIC}
+    </update>
 </mapper>

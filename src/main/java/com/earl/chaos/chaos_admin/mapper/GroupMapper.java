@@ -1,4 +1,6 @@
 package com.earl.chaos.chaos_admin.mapper;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 import com.earl.chaos.chaos_admin.domain.Group;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -10,7 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity generator.domain.Group
 */
 public interface GroupMapper extends BaseMapper<Group> {
-
+    List<Group> findByCode(@Param("code") String code);
 }
 
 

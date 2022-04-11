@@ -13,4 +13,5 @@ import java.io.Serializable;
 @Data
 public class UserDto extends User implements Serializable {
 
+    private String code;
 }

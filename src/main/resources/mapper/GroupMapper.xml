@@ -13,4 +13,11 @@
     <sql id="Base_Column_List">
         id,code,name
     </sql>
+    <select id="findByCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from nest
+        where
+        code = #{code,jdbcType=VARCHAR}
+    </select>
 </mapper>

@@ -4,8 +4,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 
@@ -45,6 +46,11 @@ public class Prize implements Serializable {
      */
     private Boolean isExchange;
 
+    /**
+     * 
+     */
+    private Boolean isRepeat;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -65,7 +71,8 @@ public class Prize implements Serializable {
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getOutUserId() == null ? other.getOutUserId() == null : this.getOutUserId().equals(other.getOutUserId()))
-            && (this.getIsExchange() == null ? other.getIsExchange() == null : this.getIsExchange().equals(other.getIsExchange()));
+            && (this.getIsExchange() == null ? other.getIsExchange() == null : this.getIsExchange().equals(other.getIsExchange()))
+            && (this.getIsRepeat() == null ? other.getIsRepeat() == null : this.getIsRepeat().equals(other.getIsRepeat()));
     }
 
     @Override
@@ -78,6 +85,7 @@ public class Prize implements Serializable {
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getOutUserId() == null) ? 0 : getOutUserId().hashCode());
         result = prime * result + ((getIsExchange() == null) ? 0 : getIsExchange().hashCode());
+        result = prime * result + ((getIsRepeat() == null) ? 0 : getIsRepeat().hashCode());
         return result;
     }
 
@@ -93,6 +101,7 @@ public class Prize implements Serializable {
         sb.append(", userId=").append(userId);
         sb.append(", outUserId=").append(outUserId);
         sb.append(", isExchange=").append(isExchange);
+        sb.append(", isRepeat=").append(isRepeat);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -2,6 +2,9 @@ package com.earl.chaos.chaos_admin.service;
 
 import com.earl.chaos.chaos_admin.domain.Group;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.earl.chaos.chaos_admin.domain.User;
+
+import java.util.List;
 
 /**
 * @author earl
@@ -10,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface GroupService extends IService<Group> {
 
+    Group getByCode(String code);
+
+    List<User> findUsersById(Integer id);
 }

@@ -1,4 +1,6 @@
 package com.earl.chaos.chaos_admin.mapper;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 import com.earl.chaos.chaos_admin.domain.Challenge;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -11,6 +13,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface ChallengeMapper extends BaseMapper<Challenge> {
 
+    List<Challenge> findByUserIdAndIsDoneOrderByCreateTime(@Param("userId")Integer userId,@Param("isDone")Boolean isDone);
+
+    List<Challenge> findByIsLoopAndUserId(@Param("isLoop") Boolean isLoop, @Param("userId") Integer userId);
 }
 
 

@@ -10,6 +10,8 @@ import com.earl.chaos.chaos_admin.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
 * @author earl
 * @description 针对表【user】的数据库操作Service实现
@@ -37,6 +39,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }else{
             return false;
         }
+    }
+
+    @Override
+    public User findByWeixinId(String weixinId) {
+        List<User> userList = userMapper.findByWeixinId(weixinId);
+        if (userList.size()>0) {
+            return userList.get(0);
+        }else{
+            return null;
+        }
+    }
+
+    @Override
+    public boolean clearGroupId(Integer userId) {
+        return userMapper.updateGroupIdById(userId) > 0;
     }
 }
 

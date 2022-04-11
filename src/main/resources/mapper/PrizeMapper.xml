@@ -11,10 +11,12 @@
             <result property="userId" column="user_id" jdbcType="INTEGER"/>
             <result property="outUserId" column="out_user_id" jdbcType="INTEGER"/>
             <result property="isExchange" column="is_exchange" jdbcType="BIT"/>
+            <result property="isRepeat" column="is_repeat" jdbcType="BIT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,name,price,
-        user_id,out_user_id,is_exchange
+        user_id,out_user_id,is_exchange,
+        is_repeat
     </sql>
 </mapper>

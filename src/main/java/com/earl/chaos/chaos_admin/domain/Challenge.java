@@ -4,9 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 
@@ -72,9 +73,14 @@ public class Challenge implements Serializable {
     private Date doneTime;
 
     /**
-     * 
+     * 是否循环任务
      */
     private Boolean isLoop;
+
+    /**
+     * 循环频率（单位天）
+     */
+    private Integer loopTime;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -102,7 +108,8 @@ public class Challenge implements Serializable {
             && (this.getPrizeId() == null ? other.getPrizeId() == null : this.getPrizeId().equals(other.getPrizeId()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getDoneTime() == null ? other.getDoneTime() == null : this.getDoneTime().equals(other.getDoneTime()))
-            && (this.getIsLoop() == null ? other.getIsLoop() == null : this.getIsLoop().equals(other.getIsLoop()));
+            && (this.getIsLoop() == null ? other.getIsLoop() == null : this.getIsLoop().equals(other.getIsLoop()))
+            && (this.getLoopTime() == null ? other.getLoopTime() == null : this.getLoopTime().equals(other.getLoopTime()));
     }
 
     @Override
@@ -121,6 +128,7 @@ public class Challenge implements Serializable {
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getDoneTime() == null) ? 0 : getDoneTime().hashCode());
         result = prime * result + ((getIsLoop() == null) ? 0 : getIsLoop().hashCode());
+        result = prime * result + ((getLoopTime() == null) ? 0 : getLoopTime().hashCode());
         return result;
     }
 
@@ -142,6 +150,7 @@ public class Challenge implements Serializable {
         sb.append(", createTime=").append(createTime);
         sb.append(", doneTime=").append(doneTime);
         sb.append(", isLoop=").append(isLoop);
+        sb.append(", loopTime=").append(loopTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
