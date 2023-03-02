@@ -4,34 +4,33 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
- * 
  * @TableName group
  */
-@TableName(value ="nest")
+@TableName(value = "nest")
 @Data
 public class Group implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
-     * 
+     *
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
-
     /**
      * 组随机码
      */
     private String code;
-
     /**
      * 组名
      */
     private String name;
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+    private Integer creator;
 
     @Override
     public boolean equals(Object that) {
@@ -46,8 +45,8 @@ public class Group implements Serializable {
         }
         Group other = (Group) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
+                && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
     }
 
     @Override

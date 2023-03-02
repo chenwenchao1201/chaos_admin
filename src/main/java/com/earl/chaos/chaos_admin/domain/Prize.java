@@ -7,52 +7,50 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
- * 
  * @TableName prize
  */
-@TableName(value ="prize")
+@TableName(value = "prize")
 @Data
 public class Prize implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
-     * 
+     *
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
-
     /**
      * 奖品名
      */
     private String name;
-
     /**
      * 奖品价格
      */
     private Integer price;
-
     /**
      * 用户id
      */
     private Integer userId;
-
     /**
      * 外部用户id
      */
     private Integer outUserId;
-
     /**
      * 是否已兑换
      */
     private Boolean isExchange;
-
     /**
-     * 
+     * 是否重复领取
      */
     private Boolean isRepeat;
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+    /**
+     * 兑换时间
+     */
+    private Date exchangeTime;
 
     @Override
     public boolean equals(Object that) {
@@ -67,12 +65,12 @@ public class Prize implements Serializable {
         }
         Prize other = (Prize) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getOutUserId() == null ? other.getOutUserId() == null : this.getOutUserId().equals(other.getOutUserId()))
-            && (this.getIsExchange() == null ? other.getIsExchange() == null : this.getIsExchange().equals(other.getIsExchange()))
-            && (this.getIsRepeat() == null ? other.getIsRepeat() == null : this.getIsRepeat().equals(other.getIsRepeat()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+                && (this.getOutUserId() == null ? other.getOutUserId() == null : this.getOutUserId().equals(other.getOutUserId()))
+                && (this.getIsExchange() == null ? other.getIsExchange() == null : this.getIsExchange().equals(other.getIsExchange()))
+                && (this.getIsRepeat() == null ? other.getIsRepeat() == null : this.getIsRepeat().equals(other.getIsRepeat()));
     }
 
     @Override

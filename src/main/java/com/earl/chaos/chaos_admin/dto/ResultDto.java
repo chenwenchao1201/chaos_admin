@@ -8,13 +8,13 @@ public class ResultDto {
     private Object result;
     private String message;
 
-    public ResultDto(String code, Object result, String  message) {
+    public ResultDto(String code, Object result, String message) {
         this.code = code;
         this.result = result;
         this.message = message;
     }
 
-    public static ResultDto success(String message,Object result) {
+    public static ResultDto success(String message, Object result) {
         return new ResultDto("200", result, message);
     }
 

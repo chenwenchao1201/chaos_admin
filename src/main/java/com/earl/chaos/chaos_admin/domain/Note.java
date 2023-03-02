@@ -10,45 +10,42 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 
  * @TableName note
  */
-@TableName(value ="note")
+@TableName(value = "note")
 @Data
 public class Note implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
-     * 
+     *
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
-
     /**
      * 描述
      */
     private String description;
-
     /**
      * 用户id
      */
     private Integer userId;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 优先级
      */
     private Integer level;
-
     /**
-     * 
+     *
      */
     private Integer challengeId;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+    /**
+     * 是否完成
+     */
+    private Boolean isDone;
 
     @Override
     public boolean equals(Object that) {
@@ -63,11 +60,12 @@ public class Note implements Serializable {
         }
         Note other = (Note) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()))
-            && (this.getChallengeId() == null ? other.getChallengeId() == null : this.getChallengeId().equals(other.getChallengeId()));
+                && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getLevel() == null ? other.getLevel() == null : this.getLevel().equals(other.getLevel()))
+                && (this.getChallengeId() == null ? other.getChallengeId() == null : this.getChallengeId().equals(other.getChallengeId()))
+                && (this.getIsDone() == null ? other.getIsDone() == null : this.getIsDone().equals(other.getIsDone()));
     }
 
     @Override
@@ -80,6 +78,7 @@ public class Note implements Serializable {
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getLevel() == null) ? 0 : getLevel().hashCode());
         result = prime * result + ((getChallengeId() == null) ? 0 : getChallengeId().hashCode());
+        result = prime * result + ((getIsDone() == null) ? 0 : getIsDone().hashCode());
         return result;
     }
 
@@ -95,6 +94,7 @@ public class Note implements Serializable {
         sb.append(", createTime=").append(createTime);
         sb.append(", level=").append(level);
         sb.append(", challengeId=").append(challengeId);
+        sb.append(", isDone=").append(isDone);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

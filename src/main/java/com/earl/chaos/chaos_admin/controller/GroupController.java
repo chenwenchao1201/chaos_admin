@@ -28,15 +28,17 @@ public class GroupController {
     UserService userService;
 
     @PostMapping("/getGroup")
-    public ResultDto getGroup(@RequestBody GroupDto group){
-        QueryWrapper queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code", group.getCode());
-        Group one = groupservice.getOne(queryWrapper);
-        return ResultDto.success("查询成功", one);
+    public ResultDto getGroup(@RequestBody GroupDto group) {
+        if (group.getUserId() != null) {
+            User user = userService.getById(group.getUserId());
+            group.setId(user.getGroupId());
+        }
+        return ResultDto.success("查询成功", groupservice.getById(group.getId()));
     }
 
     @PostMapping("/add")
-    public ResultDto add(@RequestBody GroupDto group){
+    public ResultDto add(@RequestBody GroupDto group) {
+        group.setCreator(group.getUserId());
         group.setCode(String.valueOf(UUID.fastUUID()));
         if (groupservice.save(group)) {
             User user = userService.getById(group.getUserId());
@@ -44,43 +46,55 @@ public class GroupController {
                 user.setGroupId(group.getId());
                 userService.updateById(user);
                 return ResultDto.successWithoutResult("新增成功");
-            }else{
+            } else {
                 return ResultDto.fail("用户不存在");
             }
-        }else{
+        } else {
             return ResultDto.fail("新增失败");
         }
     }
 
     @PostMapping("/edit")
-    public ResultDto edit(@RequestBody GroupDto group){
+    public ResultDto edit(@RequestBody GroupDto group) {
         Group byId = groupservice.getById(group.getId());
         if (byId != null) {
             byId.setName(group.getName());
             groupservice.updateById(byId);
             return ResultDto.successWithoutResult("更新成功");
-        }else{
+        } else {
             return ResultDto.fail("分组不存在");
         }
     }
 
     @PostMapping("/users")
-    public ResultDto users(@RequestBody GroupDto group){
+    public ResultDto users(@RequestBody GroupDto group) {
         List<User> users = groupservice.findUsersById(group.getId());
+        Group byId = groupservice.getById(group.getId());
         if (users != null) {
-            return ResultDto.success("获取成功", users);
-        }else{
+            List<UserDto> userDtos = UserDto.convert2List(users);
+            if (group.getUserId().equals(byId.getCreator())) {
+                userDtos.forEach(user -> {
+                    if (user.getId().equals(byId.getCreator())) {
+                        //创建者，不能删除
+                        user.setCanDelete(false);
+                    }else {
+                        user.setCanDelete(true);
+                    }
+                });
+            }
+            return ResultDto.success("获取成功", userDtos);
+        } else {
             return ResultDto.fail("获取失败");
         }
     }
 
     @PostMapping("/delUser")
-    public ResultDto delUser(@RequestBody GroupDto group){
+    public ResultDto delUser(@RequestBody GroupDto group) {
         User user = userService.getById(group.getUserId());
         if (user != null) {
             userService.clearGroupId(group.getUserId());
             return ResultDto.successWithoutResult("剔除成功");
-        }else{
+        } else {
             return ResultDto.fail("人员不存在");
         }
     }

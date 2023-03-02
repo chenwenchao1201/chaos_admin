@@ -5,16 +5,18 @@
 <mapper namespace="com.earl.chaos.chaos_admin.mapper.NoteMapper">
 
     <resultMap id="BaseResultMap" type="com.earl.chaos.chaos_admin.domain.Note">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="description" column="description" jdbcType="VARCHAR"/>
-            <result property="userId" column="user_id" jdbcType="INTEGER"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-            <result property="level" column="level" jdbcType="INTEGER"/>
-            <result property="challengeId" column="challenge_id" jdbcType="INTEGER"/>
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="level" column="level" jdbcType="INTEGER"/>
+        <result property="challengeId" column="challenge_id" jdbcType="INTEGER"/>
+        <result property="isDone" column="is_done" jdbcType="BIT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,description,user_id,
-        create_time,level,challenge_id
+        create_time,level,challenge_id,
+        is_done
     </sql>
 </mapper>

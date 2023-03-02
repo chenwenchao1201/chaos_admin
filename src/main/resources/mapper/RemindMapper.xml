@@ -5,13 +5,13 @@
 <mapper namespace="com.earl.chaos.chaos_admin.mapper.RemindMapper">
 
     <resultMap id="BaseResultMap" type="com.earl.chaos.chaos_admin.domain.Remind">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="description" column="description" jdbcType="VARCHAR"/>
-            <result property="userId" column="user_id" jdbcType="INTEGER"/>
-            <result property="challengeId" column="challenge_id" jdbcType="INTEGER"/>
-            <result property="time" column="time" jdbcType="TIMESTAMP"/>
-            <result property="isAllDay" column="is_all_day" jdbcType="BIT"/>
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="challengeId" column="challenge_id" jdbcType="INTEGER"/>
+        <result property="time" column="time" jdbcType="TIMESTAMP"/>
+        <result property="isAllDay" column="is_all_day" jdbcType="BIT"/>
     </resultMap>
 
     <sql id="Base_Column_List">

@@ -1,7 +1,6 @@
 package com.earl.chaos.chaos_admin.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.earl.chaos.chaos_admin.domain.Challenge;
 import com.earl.chaos.chaos_admin.domain.Note;
 import com.earl.chaos.chaos_admin.dto.ChallengeDto;
 import com.earl.chaos.chaos_admin.dto.NoteDto;
@@ -23,16 +22,17 @@ public class NoteController {
     public ResultDto getNotes(@RequestBody NoteDto noteDto) {
         QueryWrapper queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", noteDto.getUserId());
+        queryWrapper.eq("is_done", noteDto.getIsDone());
         queryWrapper.orderByDesc("level");
         return ResultDto.success("查询成功", noteService.list(queryWrapper));
     }
 
     @PostMapping("/getById")
-    public ResultDto getById(@RequestBody ChallengeDto challengeDto){
-        Note note =  noteService.getById(challengeDto.getId());
+    public ResultDto getById(@RequestBody ChallengeDto challengeDto) {
+        Note note = noteService.getById(challengeDto.getId());
         if (note != null) {
             return ResultDto.success("查询成功", note);
-        }else{
+        } else {
             return ResultDto.fail("查询失败，id不正确");
         }
     }

@@ -5,13 +5,13 @@
 <mapper namespace="com.earl.chaos.chaos_admin.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="com.earl.chaos.chaos_admin.domain.User">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="sex" column="sex" jdbcType="BIT"/>
-            <result property="weixinId" column="weixin_id" jdbcType="VARCHAR"/>
-            <result property="groupId" column="group_id" jdbcType="INTEGER"/>
-            <result property="priceUnitName" column="price_unit_name" jdbcType="VARCHAR"/>
-            <result property="totalPrice" column="total_price" jdbcType="INTEGER"/>
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="BIT"/>
+        <result property="weixinId" column="weixin_id" jdbcType="VARCHAR"/>
+        <result property="groupId" column="group_id" jdbcType="INTEGER"/>
+        <result property="priceUnitName" column="price_unit_name" jdbcType="VARCHAR"/>
+        <result property="totalPrice" column="total_price" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -24,7 +24,7 @@
         <include refid="Base_Column_List"/>
         from user
         where
-        weixin_id = #{weixinId,jdbcType=VARCHAR}
+        weixin_id = #{weixinId,jdbcType=VARCHAR} limit 1
     </select>
     <select id="findByGroupId" resultMap="BaseResultMap">
         select

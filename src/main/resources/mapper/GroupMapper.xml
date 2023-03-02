@@ -5,13 +5,14 @@
 <mapper namespace="com.earl.chaos.chaos_admin.mapper.GroupMapper">
 
     <resultMap id="BaseResultMap" type="com.earl.chaos.chaos_admin.domain.Group">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="code" column="code" jdbcType="VARCHAR"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="creator" column="creator" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,code,name
+        id,code,name,creator
     </sql>
     <select id="findByCode" resultMap="BaseResultMap">
         select

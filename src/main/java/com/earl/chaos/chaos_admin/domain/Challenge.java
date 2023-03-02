@@ -10,80 +10,66 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 
  * @TableName challenge
  */
-@TableName(value ="challenge")
+@TableName(value = "challenge")
 @Data
 public class Challenge implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
-     * 
+     *
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
-
     /**
      * 挑战名
      */
     private String name;
-
     /**
      * 挑战描述
      */
     private String description;
-
     /**
      * 用户id
      */
     private Integer userId;
-
     /**
      * 积分值
      */
     private Integer price;
-
     /**
      * 是否完成
      */
     private Boolean isDone;
-
     /**
      * 外部创建id
      */
     private Integer outCreateId;
-
     /**
      * 外部是否确认完成
      */
     private Integer isOutDone;
-
     /**
      * 奖品id
      */
     private Integer prizeId;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 完成时间
      */
     private Date doneTime;
-
     /**
      * 是否循环任务
      */
     private Boolean isLoop;
-
     /**
      * 循环频率（单位天）
      */
     private Integer loopTime;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -98,18 +84,18 @@ public class Challenge implements Serializable {
         }
         Challenge other = (Challenge) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-            && (this.getIsDone() == null ? other.getIsDone() == null : this.getIsDone().equals(other.getIsDone()))
-            && (this.getOutCreateId() == null ? other.getOutCreateId() == null : this.getOutCreateId().equals(other.getOutCreateId()))
-            && (this.getIsOutDone() == null ? other.getIsOutDone() == null : this.getIsOutDone().equals(other.getIsOutDone()))
-            && (this.getPrizeId() == null ? other.getPrizeId() == null : this.getPrizeId().equals(other.getPrizeId()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getDoneTime() == null ? other.getDoneTime() == null : this.getDoneTime().equals(other.getDoneTime()))
-            && (this.getIsLoop() == null ? other.getIsLoop() == null : this.getIsLoop().equals(other.getIsLoop()))
-            && (this.getLoopTime() == null ? other.getLoopTime() == null : this.getLoopTime().equals(other.getLoopTime()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+                && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
+                && (this.getIsDone() == null ? other.getIsDone() == null : this.getIsDone().equals(other.getIsDone()))
+                && (this.getOutCreateId() == null ? other.getOutCreateId() == null : this.getOutCreateId().equals(other.getOutCreateId()))
+                && (this.getIsOutDone() == null ? other.getIsOutDone() == null : this.getIsOutDone().equals(other.getIsOutDone()))
+                && (this.getPrizeId() == null ? other.getPrizeId() == null : this.getPrizeId().equals(other.getPrizeId()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getDoneTime() == null ? other.getDoneTime() == null : this.getDoneTime().equals(other.getDoneTime()))
+                && (this.getIsLoop() == null ? other.getIsLoop() == null : this.getIsLoop().equals(other.getIsLoop()))
+                && (this.getLoopTime() == null ? other.getLoopTime() == null : this.getLoopTime().equals(other.getLoopTime()));
     }
 
     @Override

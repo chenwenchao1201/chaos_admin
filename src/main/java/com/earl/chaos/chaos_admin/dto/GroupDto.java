@@ -6,7 +6,6 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 
  * @TableName group
  */
 @Data
